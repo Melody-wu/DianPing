@@ -28,6 +28,8 @@ class Home extends React.Component {
 // -------------------redux react 绑定--------------------
 
 function mapStateToProps(state) {
+    console.log("--------home------state:")
+    console.log(state.userinfo)
     return {
         userinfo: state.userinfo
     }
