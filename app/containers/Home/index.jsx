@@ -15,11 +15,11 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <HomeHeader cityName={this.props.userinfo.cityName}/>
+                <HomeHeader cityName={this.props.userInfo.cityName}/>
                 <Category/>
                 <div style={{height: '15px'}}>{/* 分割线 */}</div>
                 <Ad/>
-                <List cityName={this.props.userinfo.cityName}/>
+                <List cityName={this.props.userInfo.cityName}/>
             </div>
         )
     }
@@ -29,9 +29,9 @@ class Home extends React.Component {
 
 function mapStateToProps(state) {
     console.log("--------home------state:")
-    console.log(state.userinfo)
+    console.log(state.userInfo)
     return {
-        userinfo: state.userinfo
+        userInfo: state.userInfo
     }
 }
 
