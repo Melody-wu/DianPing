@@ -51,7 +51,9 @@ class City extends React.Component {
     }
 
     function mapDispatchToProps(dispatch) {
-        return {}
+        return {
+             userInfoActions: bindActionCreators(userInfoActionsFromOtherFile, dispatch)
+        }
     }
 export default connect(
      mapStateToProps,
