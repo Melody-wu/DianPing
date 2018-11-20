@@ -36,7 +36,9 @@ class Login extends React.Component {
     }
     doCheck() {
         const userInfo = this.props.userInfo
-        if (userInfo.username) {
+        const token =userInfo.token
+        const username= userInfo.username
+        if (username && token) {
             // 已经登录，则跳转到用户主页
             this.goUserPage();
         } else {
@@ -47,11 +49,12 @@ class Login extends React.Component {
         }
     }
     // 处理登录之后的事情
-    loginHandle(username) {
+    loginHandle(username,token) {
         // 保存用户名
         const actions = this.props.userInfoActions
         let userInfo = this.props.userInfo
         userInfo.username = username
+        userInfo.token =token
         actions.update(userInfo)
 
         const params = this.props.params
