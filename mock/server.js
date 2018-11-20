@@ -95,7 +95,16 @@ router.get('/api/detail/comment/:page/:id', function *(next) {
 
     this.body = detailComment
 })
+// 用户订单查询
+const detailOrderList = require('./orderlist/orderList.js')
+router.get('/api/orderlist/:id',function *(next){
+    console.log('订单列表')
 
+    const img = this.img
+    const title = this.title
+
+    this.body = detailOrderList
+})
 // 开始服务并生成路由
 app.use(router.routes())
    .use(router.allowedMethods());
