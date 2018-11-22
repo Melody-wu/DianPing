@@ -95,16 +95,31 @@ router.get('/api/detail/comment/:page/:id', function *(next) {
 
     this.body = detailComment
 })
-// 用户订单查询
-const detailOrderList = require('./orderlist/orderList.js')
-router.get('/api/orderlist/:id',function *(next){
+
+// 订单列表
+const orderList = require('./orderlist/orderList.js')
+router.get('/api/orderlist/:username', function *(next) {
     console.log('订单列表')
 
-    const img = this.img
-    const title = this.title
+    const params = this.params
+    const username = params.username
+    console.log('用户名：' + username)
 
-    this.body = detailOrderList
+    this.body = orderList
 })
+
+// 提交评论
+router.post('/api/submitComment', function *(next) {
+    console.log('提交评论')
+
+    // 获取参数
+
+    this.body = {
+        errno: 0,
+        msg: 'ok'
+    }
+})
+
 // 开始服务并生成路由
 app.use(router.routes())
    .use(router.allowedMethods());
